@@ -8,7 +8,6 @@ export default function Home() {
       <div id="nav-mount"></div>
 
       <div className="page">
-        {/* ══ HERO ══════════════════════════════════ */}
         <main className="main">
           <div className="marquee-wrap" aria-hidden="true">
             <div className="marquee-inner">
@@ -26,26 +25,16 @@ export default function Home() {
           <h1 className="headline">
             <div className="hl-stack">
               <div className="hl-row">
-                <span className="hl-word" data-text="I'm">
-                  I'm
-                </span>
+                <span className="hl-word" data-text="I'm">I'm</span>
                 <span className="hl-sep">·</span>
-                <span className="hl-word" data-text="Narmin">
-                  Narmin
-                </span>
+                <span className="hl-word" data-text="Narmin">Narmin</span>
               </div>
               <div className="hl-row">
-                <span className="hl-word" data-text="Lead">
-                  Lead
-                </span>
+                <span className="hl-word" data-text="Lead">Lead</span>
                 <span className="hl-sep">·</span>
-                <span className="hl-word" data-text="Product">
-                  Product
-                </span>
+                <span className="hl-word" data-text="Product">Product</span>
                 <span className="hl-sep">·</span>
-                <span className="hl-word" data-text="Designer">
-                  Designer
-                </span>
+                <span className="hl-word" data-text="Designer">Designer</span>
               </div>
             </div>
           </h1>
@@ -58,7 +47,6 @@ export default function Home() {
           </div>
         </main>
 
-        {/* ══ PROJECTS ═══════════════════════════════ */}
         <section className="projects-section">
           <div className="section-header">
             <div className="section-label">Selected Projects</div>
