@@ -1,0 +1,270 @@
+/* ================================================
+   NARMIN — INDEX (HOME) PAGE STYLES
+   css/index.css
+   ================================================ */
+
+
+/* ────────────────────────────────────────────────
+   1. HERO SECTION
+──────────────────────────────────────────────── */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 72px 80px 96px;
+  position: relative;
+  overflow: hidden;
+  gap: 20px;
+}
+
+
+/* ────────────────────────────────────────────────
+   2. GHOST MARQUEE (background watermark)
+──────────────────────────────────────────────── */
+.marquee-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.marquee-inner {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-inner span {
+  font-family: var(--font-display);
+  font-size: 160px;
+  font-weight: 700;
+  color: rgba(240, 240, 240, 0.04);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  padding-right: 56px;
+}
+
+
+/* ────────────────────────────────────────────────
+   3. HEADLINE
+──────────────────────────────────────────────── */
+.headline {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.7s 0.55s ease both;
+  max-width: 560px;
+}
+
+.hero-body p {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.hl-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hl-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2em;
+  flex-wrap: wrap;
+}
+
+.hl-word {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  display: inline-flex;
+  white-space: nowrap;
+  animation: slideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+  overflow: visible;
+}
+
+.hl-row:nth-child(1) .hl-word:nth-child(1) { animation-delay: 0.00s; }
+.hl-row:nth-child(1) .hl-word:nth-child(3) { animation-delay: 0.08s; }
+.hl-row:nth-child(2) .hl-word:nth-child(1) { animation-delay: 0.16s; }
+.hl-row:nth-child(2) .hl-word:nth-child(2) { animation-delay: 0.22s; font-style: italic; font-weight: 200; color: var(--text-muted); }
+.hl-row:nth-child(2) .hl-word:nth-child(3) { animation-delay: 0.28s; }
+
+.hl-sep {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.8vw, 28px);
+  color: var(--red);
+  align-self: center;
+  flex-shrink: 0;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+
+.hl-word .char {
+  display: inline-block;
+  will-change: transform;
+  color: inherit;
+  transition: color 0.25s;
+}
+
+
+/* ────────────────────────────────────────────────
+   4. HERO BODY
+──────────────────────────────────────────────── */
+.hero-body p em {
+  font-style: normal;
+  color: var(--text);
+}
+
+
+/* ────────────────────────────────────────────────
+   5. PROJECTS SECTION
+──────────────────────────────────────────────── */
+.projects-section {
+  padding: 48px 80px 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding-bottom: 8px;
+}
+
+.section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: rgba(240, 240, 240, 0.28);
+}
+
+.section-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+}
+
+
+/* ────────────────────────────────────────────────
+   6. PROJECT ROWS
+──────────────────────────────────────────────── */
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: padding-left 0.25s ease;
+}
+
+.project-row:hover {
+  padding-left: 8px;
+}
+
+.proj-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 44px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+}
+
+.proj-italic {
+  font-style: italic;
+  font-weight: 200;
+  color: var(--text-muted);
+  font-size: 0.55em;
+  letter-spacing: 0;
+  transition: color 0.25s;
+}
+.project-row:hover .proj-italic { color: var(--red); }
+
+.proj-desc {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, padding-top 0.3s ease;
+  line-height: 1.6;
+}
+
+.project-row:hover .proj-desc {
+  max-height: 2.5em;
+  opacity: 0.7;
+  padding-top: 6px;
+}
+
+.proj-arrow {
+  font-size: 16px;
+  color: var(--text-dim);
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-row:hover .proj-arrow { color: var(--text); transform: translate(4px, -4px); }
+
+
+/* ────────────────────────────────────────────────
+   7. RESPONSIVE
+──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .main              { padding: 56px 48px 72px; }
+  .projects-section  { padding: 40px 48px 80px; }
+}
+
+@media (max-width: 700px) {
+  .main              { padding: 48px 36px 64px; }
+  .projects-section  { padding: 32px 36px 64px; }
+  .project-row       { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 8px 12px; padding: 20px 0; }
+  .proj-name         { font-size: clamp(20px, 5vw, 32px); grid-column: 1; grid-row: 1; }
+  .proj-arrow        { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+}
+
+@media (max-width: 480px) {
+  .main              { padding: 40px 24px 56px; }
+  .projects-section  { padding: 28px 24px 56px; }
+  .project-row:hover { padding-left: 0; }
+}

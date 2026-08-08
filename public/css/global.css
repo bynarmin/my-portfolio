@@ -1,0 +1,320 @@
+/* ================================================
+   NARMIN — GLOBAL STYLES
+   css/global.css
+   Loaded on EVERY page.
+   Contains: reset, tokens, body, noise, cursor,
+             nav, footer, shared keyframes.
+   ================================================ */
+
+
+/* ────────────────────────────────────────────────
+   1. RESET
+──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+
+/* ────────────────────────────────────────────────
+   2. DESIGN TOKENS
+──────────────────────────────────────────────── */
+:root {
+  --bg:         #0a0a0a;
+  --bg2:        #111111;
+  --text:       #f0f0f0;
+  --text-muted: rgba(240, 240, 240, 0.48);
+  --text-dim:   rgba(240, 240, 240, 0.22);
+  --border:     rgba(240, 240, 240, 0.1);
+  --hover-bg:   rgba(240, 240, 240, 0.04);
+  --red:        rgb(220, 0, 0);
+  --red-dim:    rgba(220, 0, 0, 0.6);
+
+  --font-display: 'Manrope', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-ui:    'Manrope', sans-serif;
+  --font-mono:  'Courier Prime', monospace;
+
+  --space-xs:   8px;
+  --space-sm:   16px;
+  --space-md:   32px;
+  --space-lg:   64px;
+  --space-xl:   80px;
+}
+
+
+/* ────────────────────────────────────────────────
+   3. BODY
+──────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ────────────────────────────────────────────────
+   4. NOISE OVERLAY
+──────────────────────────────────────────────── */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  opacity: 0.028;
+}
+
+
+/* ────────────────────────────────────────────────
+   5. CUSTOM CURSOR RING
+──────────────────────────────────────────────── */
+#cur-ring {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(220, 0, 0, 0.75);
+  border-radius: 50%;
+  left: -40px;
+  top: -40px;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+
+
+/* ────────────────────────────────────────────────
+   6. PAGE SHELL
+──────────────────────────────────────────────── */
+.page {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ────────────────────────────────────────────────
+   7. NAVIGATION
+──────────────────────────────────────────────── */
+nav {
+  height: 56px;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(240, 240, 240, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+nav.nav-center {
+  justify-content: center;
+}
+nav.nav-center .nav-left {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item {
+  position: relative;
+  padding: 0 28px 0 0;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-right .nav-item {
+  padding: 16px 10px;
+  border: 1px solid var(--red);
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-right .nav-item:hover {
+  background-color: var(--red);
+}
+
+.nav-right .nav-item:hover .nav-letter {
+  color: #fff;
+}
+
+nav.nav-center .nav-item {
+  padding: 0 28px;
+}
+
+.nav-word {
+  display: flex;
+  overflow: visible;
+}
+
+.nav-letter {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  will-change: transform;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.nav-item:hover .nav-letter {
+  color: rgba(240, 240, 240, 0.9);
+}
+
+.nav-item.active .nav-letter {
+  color: rgba(240, 240, 240, 0.85);
+}
+
+
+/* ────────────────────────────────────────────────
+   8. FOOTER
+──────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer.footer-bordered {
+  border-top: 1px solid var(--border);
+}
+
+.footer-love {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.footer-love em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--text-muted);
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+
+/* ────────────────────────────────────────────────
+   9. SHARED KEYFRAMES
+──────────────────────────────────────────────── */
+@keyframes fadeIn  { from { opacity: 0; }                            to { opacity: 1; } }
+@keyframes fadeUp  { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes slideUp { from { transform: translateY(110%); }            to { transform: none; } }
+@keyframes marquee { from { transform: translateX(0); }               to { transform: translateX(-50%); } }
+
+
+/* ────────────────────────────────────────────────
+   10. RESPONSIVE — shared breakpoints
+──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  nav                { padding: 0 48px; }
+  nav.nav-center     { padding: 0 48px; }
+  nav.nav-center .nav-left { position: static; transform: none; left: auto; }
+  .nav-item          { padding-right: 20px; }
+  nav.nav-center .nav-item { padding: 0 18px; }
+  .nav-right .nav-item { padding: 12px 20px; }
+  .footer            { padding: 28px 48px; }
+}
+
+@media (max-width: 700px) {
+  #cur-ring          { display: none; }
+  nav                { padding: 0 36px; }
+  nav.nav-center .nav-left { position: static; transform: none; }
+  nav.nav-center .nav-item { padding: 0 14px; }
+  .nav-right .nav-item { padding: 10px 6px; }
+  .footer            { padding: 24px 36px; }
+}
+
+@media (max-width: 480px) {
+  nav                { padding: 0 24px; }
+  nav.nav-center     { padding: 0 24px; }
+  nav.nav-center .nav-item { padding: 0 10px; }
+  .nav-letter        { font-size: 9px; letter-spacing: 0.1em; }
+  .nav-right         { display: none; }
+  .footer            { padding: 20px 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+}
+
+
+/* ────────────────────────────────────────────────
+   11. SHARED PAGE ELEMENTS
+──────────────────────────────────────────────── */
+.hello-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.7s 0.25s ease both;
+}
+
+.hello-tag::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: rgba(240, 240, 240, 0.28);
+}
