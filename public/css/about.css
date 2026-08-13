@@ -404,3 +404,63 @@
   .ar-title         { font-size: clamp(40px, 10vw, 60px); }
   .ar-bottom        { grid-template-columns: 1fr; gap: 36px 0; }
 }
+.about-right, 
+.ar-title, 
+.ar-intro, 
+.ar-bio, 
+.ar-exp-company, 
+.ar-exp-role, 
+.ar-edu-school, 
+.ar-edu-degree, 
+.ar-list-item, 
+.ar-link, 
+.ar-lang-row {
+  color: #e0e0e0 !important;
+}
+
+.ar-label, 
+.ar-eyebrow, 
+.ar-exp-period, 
+.ar-edu-gpa, 
+.ar-lang-level {
+  color: #888888 !important;
+}/* Forzo la visibilità di tutti i blocchi testo dell'About */
+.about-right,
+.ar-title-block,
+.ar-section,
+.ar-bottom,
+.ar-title,
+.ar-intro,
+.ar-bio,
+.ar-exp-item,
+.ar-edu-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Colori chiari per contrasto sullo sfondo scuro */
+.about-right {
+  color: #f0f0f0 !important;
+}
+
+.ar-eyebrow,
+.ar-label,
+.ar-exp-period,
+.ar-edu-gpa,
+.ar-lang-level {
+  color: #888888 !important;
+}
+
+.ar-title,
+.ar-intro,
+.ar-bio,
+.ar-exp-company,
+.ar-exp-role,
+.ar-edu-school,
+.ar-edu-degree,
+.ar-link,
+.ar-list-item,
+.ar-lang-row {
+  color: #ffffff !important;
+}

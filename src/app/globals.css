@@ -590,3 +590,30 @@ nav.nav-center .nav-item {
   .project-row:hover { padding-left: 0; }
 }
 
+/* Ripristino visibilità e colori testo per la pagina About */
+.about-right,
+.about-right * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.ar-title,
+.ar-intro,
+.ar-bio,
+.ar-exp-company,
+.ar-exp-role,
+.ar-edu-school,
+.ar-edu-degree,
+.ar-link,
+.ar-list-item,
+.ar-lang-row {
+  color: #ffffff !important;
+}
+
+.ar-eyebrow,
+.ar-label,
+.ar-exp-period,
+.ar-edu-gpa,
+.ar-lang-level {
+  color: #888888 !important;
+}

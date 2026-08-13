@@ -4,8 +4,9 @@
    works whether opened via file:// or a server.
    ================================================ */
 
-  // GLOBAL 
+// GLOBAL 
 
+import React from 'react';
 const NAV_HTML = `
 <nav id="nav">
   <div class="nav-left">
@@ -15,11 +16,81 @@ const NAV_HTML = `
     <a class="nav-item" data-page="about" href="about.html">
       <div class="nav-word" data-word="ABOUT"></div>
     </a>
-    <a class="nav-item" data-page="contact" href="mailto:design@bynarmin.it">
+    <a class="nav-item" data-page="contact" href="mailto:ahz.nrm@gmail.com">
       <div class="nav-word" data-word="CONTACT"></div>
     </a>
   </div>
+
+  <!-- ICONE SOCIAL (Forzate sopra a tutto) -->
+  <div style="position: fixed !important; top: 20px !important; right: 25px !important; z-index: 99999 !important; display: flex !important; gap: 14px !important; align-items: center !important; background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(8px);">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/narmin-ahmadzadeh/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="color: #ffffff !important; display: flex !important; align-items: center !important; text-decoration: none !important; opacity: 0.8;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="3"/>
+        <path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/>
+      </svg>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:ahz.nrm@gmail.com" aria-label="Email" style="color: #ffffff !important; display: flex !important; align-items: center !important; text-decoration: none !important; opacity: 0.8;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m2 7 10 7 10-7"/>
+      </svg>
+    </a>
+  </div>
 </nav>`;
+          HOME
+        </Link>
+        <Link href="/about" style={{ color: '#888', textDecoration: 'none', fontSize: '13px', fontWeight: 500, letterSpacing: '1px' }}>
+          ABOUT
+        </Link>
+        <a href="mailto:ahz.nrm@gmail.com" style={{ color: '#888', textDecoration: 'none', fontSize: '13px', fontWeight: 500, letterSpacing: '1px' }}>
+          CONTACT
+        </a>
+      </div>
+
+      {/* ICONE SOCIAL A DESTRA */}
+      <div style={{
+        display: 'flex',
+        gap: '16px',
+        alignItems: 'center',
+        background: 'rgba(18, 18, 18, 0.8)',
+        backdropFilter: 'blur(10px)',
+        padding: '10px 16px',
+        borderRadius: '40px',
+        border: '1px solid #2a2a2a',
+        pointerEvents: 'auto'
+      }}>
+        {/* LinkedIn */}
+        <a 
+          href="https://www.linkedin.com/in/narmin-ahmadzadeh/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          aria-label="LinkedIn"
+          style={{ color: '#ffffff', display: 'flex', alignItems: 'center', opacity: 0.8 }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="3"/>
+            <path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/>
+          </svg>
+        </a>
+
+        {/* Email */}
+        <a 
+          href="mailto:ahz.nrm@gmail.com" 
+          aria-label="Email"
+          style={{ color: '#ffffff', display: 'flex', alignItems: 'center', opacity: 0.8 }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  );
+}
 
 const FOOTER_HTML = `
 <footer class="footer">
@@ -31,7 +102,7 @@ const FOOTER_HTML = `
         <path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/>
       </svg>
     </a>
-    <a href="mailto:design@bynarmin.it" class="social-link" aria-label="Email">
+    <a href="mailto:ahz.nrm@gmail.com" class="social-link" aria-label="Email">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="m2 7 10 7 10-7"/>
@@ -129,10 +200,4 @@ function initCursorRing() {
     ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
     requestAnimationFrame(lerpRing);
   })();
-  window.initRingHover = function(selectors) {
-    document.querySelectorAll(selectors).forEach(el => {
-      el.addEventListener('mouseenter', () => { ring.style.width='52px'; ring.style.height='52px'; ring.style.borderColor='rgba(220,0,0,0.4)'; });
-      el.addEventListener('mouseleave', () => { ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(220,0,0,0.75)'; });
-    });
-  };
 }
