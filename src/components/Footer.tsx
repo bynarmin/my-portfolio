@@ -1,53 +1,96 @@
+import Link from "next/link";
+
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="footer footer-bordered">
-      <div className="footer-love">
-        Made with love by <em>Narmin</em>
-      </div>
-      <div className="footer-socials">
-        <a 
-  href="https://www.iubenda.com/privacy-policy/20188315"
-  className="iubenda-white iubenda-noiframe iubenda-embed"
-  title="Privacy Policy"
->
-  Privacy Policy
-</a>
-        <a
-          href="https://www.linkedin.com/in/narmin-ahmadzadeh/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-link"
-          aria-label="LinkedIn"
+    <footer
+      style={{
+        width: "100%",
+        backgroundColor: "#0d0d0d",
+        borderTop: "1px solid #1a1a1a",
+        padding: "28px 48px",
+        boxSizing: "border-box",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "16px",
+        }}
+      >
+        {/* Left Side: Copyright & Privacy Policy */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            fontSize: "12px",
+            color: "#777777",
+          }}
         >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          <span>© {currentYear} · All rights reserved</span>
+          <span>•</span>
+          <Link
+            href="/privacy"
+            style={{
+              color: "#999999",
+              textDecoration: "none",
+            }}
           >
-            <rect x="2" y="2" width="20" height="20" rx="3" />
-            <path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4" />
-          </svg>
-        </a>
-        <a href="mailto:design@bynarmin.it" className="social-link" aria-label="Email">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            Privacy Policy
+          </Link>
+        </div>
+
+        {/* Right Side: Social Links */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "24px",
+            fontSize: "12px",
+            fontWeight: 500,
+          }}
+        >
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#ffffff",
+              textDecoration: "none",
+            }}
           >
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="m2 7 10 7 10-7" />
-          </svg>
-        </a>
+            LinkedIn
+          </a>
+
+          <a
+            href="https://www.behance.net/narminahmadza"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#ffffff",
+              textDecoration: "none",
+            }}
+          >
+            Behance
+          </a>
+
+          <a
+            href="mailto:design@bynarmin.it"
+            style={{
+              color: "#ffffff",
+              textDecoration: "none",
+            }}
+          >
+            Email
+          </a>
+        </div>
       </div>
     </footer>
   );

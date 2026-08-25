@@ -1,4 +1,3 @@
-import Script from "next/script";
 import "./globals.css";
 
 export const metadata = {
@@ -29,13 +28,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/about.css" />
         <link rel="stylesheet" href="/css/work.css" />
       </head>
-      <body>
-        {children}
-        <Script
-          src="https://cdn.iubenda.com/iubenda.js"
-          strategy="lazyOnload"
-        />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

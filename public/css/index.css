@@ -209,14 +209,26 @@
 
 .proj-italic {
   font-style: italic;
-  font-weight: 200;
+  font-weight: 300;
   color: var(--text-muted);
-  font-size: 0.55em;
+  font-size: 14px; 
   letter-spacing: 0;
   transition: color 0.25s;
 }
-.project-row:hover .proj-italic { color: var(--red); }
+.project-row:hover .proj-italic { 
+  color: var(--red); 
+}
 
+/* Hover effect for row titles and descriptions */
+.project-row:hover .proj-name,
+.project-row:hover .proj-desc-text {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.proj-name, .proj-desc-text {
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
 .proj-desc {
   display: block;
   font-family: var(--font-ui);
