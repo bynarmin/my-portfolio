@@ -27,6 +27,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/global.css" />
         <link rel="stylesheet" href="/css/about.css" />
         <link rel="stylesheet" href="/css/work.css" />
+        <link rel="stylesheet" href="/css/hero.css" />
       </head>
       <body>{children}</body>
     </html>

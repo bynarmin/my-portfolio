@@ -260,7 +260,7 @@ export default function WebsiteRedesign() {
 
         {/* NEXT PROJECT */}
         <div className="work-next">
-          <span class="work-next-label">Next project</span>
+          <span className="work-next-label">Next project</span>
           <a href="/work/my-digital-health" className="work-next-link">
             <span className="work-next-name">
               My Digital <em>Health</em>

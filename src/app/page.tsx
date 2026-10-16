@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroScroll from "@/components/HeroScroll";
 
 export default function Home() {
   return (
@@ -12,56 +13,11 @@ export default function Home() {
       <Navbar />
 
       <div className="page">
-        <main className="main">
-          <div className="marquee-wrap" aria-hidden="true">
-            <div className="marquee-inner">
-              <span>Design.</span>
-              <span>Design.</span>
-              <span>Design.</span>
-              <span>Design.</span>
-              <span>Design.</span>
-              <span>Design.</span>
-            </div>
-          </div>
-
-          <div className="hello-tag">Senior Product Designer</div>
-
-          <h1 className="headline">
-            <div className="hl-stack">
-              <div className="hl-row">
-                <span className="hl-word" data-text="I'm">
-                  I
-                </span>
-                <span className="hl-sep">·</span>
-                <span className="hl-word" data-text="Narmin">
-                  Design
-                </span>
-              </div>
-              <div className="hl-row">
-                <span className="hl-word" data-text="Lead">
-                  Digital Products
-                </span>
-                <span className="hl-sep">·</span>
-                <span className="hl-word" data-text="Product">
-                  that
-                </span>
-                <span className="hl-sep">·</span>
-                <span className="hl-word" data-text="Designer">
-                  scale
-                </span>
-              </div>
-            </div>
-          </h1>
-
-          <div className="hero-body">
-            <p className="font-mono text-lg md:text-xl font-normal text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl mt-4">
-              Senior Product & Service Designer. 
-              With 6 years of experience and a foundation in architecture, I build intuitive interfaces, robust design systems, and end-to-end user journeys.
-            </p>
-          </div>
+        <main>
+          <HeroScroll />
         </main>
 
-        <section className="projects-section">
+        <section className="projects-section" id="projects">
           <div className="section-header">
             <div className="section-label">Selected Projects</div>
             <div className="section-count">(06)</div>
