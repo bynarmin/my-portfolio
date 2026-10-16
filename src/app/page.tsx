@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroScroll from "@/components/HeroScroll";
+import StoryHero from "@/components/StoryHero";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
 
       <div className="page">
         <main>
-          <HeroScroll />
+          <StoryHero />
         </main>
 
         <section className="projects-section" id="projects">

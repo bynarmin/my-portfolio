@@ -1,0 +1,217 @@
+/* ================================================
+   NARMIN — HOME HERO (3D SCROLL STORY)
+   css/story.css
+   Pinned stage under the sticky nav. The timeline in
+   components/story/timeline.js writes panel opacity,
+   rail fill, caption text and --bg (sky colour).
+   ================================================ */
+
+.story {
+  --bg: #eddcc6;
+  --ink: #2a2420;
+  --accent: #c8392a;
+  --muted: #8a8a86;
+  --track: #dcdbd6;
+  --nav: 56px;
+  position: relative;
+  height: 1000vh;
+  z-index: 2;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.story-pin {
+  position: sticky;
+  top: var(--nav);
+  height: calc(100svh - var(--nav));
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.story-canvas {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+}
+
+.story-canvas:active { cursor: grabbing; }
+.story-canvas canvas { display: block; }
+
+/* paper wash behind the copy so it reads over the scene */
+.story-pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 45% at 0% 0%,
+    color-mix(in srgb, var(--bg) 85%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 60%, transparent) 50%,
+    transparent 100%
+  );
+}
+
+.story-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+
+.story-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  padding: clamp(20px, 4vw, 48px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.story-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.story-intro {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.story-intro i,
+.story-caption i {
+  display: block;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.story-intro i { width: 8px; height: 8px; }
+.story-caption i { width: 6px; height: 6px; }
+
+.story-rail {
+  display: grid;
+  grid-template-columns: repeat(4, 88px);
+  gap: 8px;
+}
+
+.story-rail div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.story-rail div.on { color: #141414; }
+
+.story-rail span {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  background: var(--track);
+}
+
+.story-rail b {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.story-panels { position: relative; }
+
+.story-panel {
+  position: absolute;
+  left: 0;
+  top: clamp(24px, 7vh, 80px);
+  max-width: 560px;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.story-n {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.story-panel h1,
+.story-panel h2 {
+  margin: 14px 0 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(42px, 5.6vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.story-panel em { color: var(--accent); }
+
+.story-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.story-hint {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: opacity 0.4s;
+}
+
+.story-caption {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #141414;
+  color: #f5f4f0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.story-spacer { width: 80px; }
+
+/* WebGL unavailable: collapse to one screen with the first chapter */
+.story.story-static { height: auto; }
+.story.story-static .story-pin { position: relative; top: auto; height: 70svh; }
+
+@media (max-width: 760px) {
+  .story-top { flex-direction: column; }
+  .story-intro { display: none; }
+  .story-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; }
+  .story-panel h1,
+  .story-panel h2 { font-size: 40px; }
+  .story-spacer { display: none; }
+  .story-hint { display: none; }
+}
