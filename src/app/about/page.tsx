@@ -23,7 +23,7 @@ export default function About() {
           </div>
 
           {/* RIGHT — content */}
-          <div className="about-right" style={{ color: "#ffffff" }}>
+          <div className="about-right" style={{ color: "var(--text)" }}>
             <div className="ar-title-block">
               <div className="ar-eyebrow">Senior Product Designer</div>
               <h1 className="ar-title">

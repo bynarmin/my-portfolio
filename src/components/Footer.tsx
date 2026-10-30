@@ -7,8 +7,8 @@ export default function Footer() {
     <footer
       style={{
         width: "100%",
-        backgroundColor: "#0d0d0d",
-        borderTop: "1px solid #1a1a1a",
+        backgroundColor: "var(--footer-bg)",
+        borderTop: "1px solid var(--footer-border)",
         padding: "28px 48px",
         boxSizing: "border-box",
       }}
@@ -31,7 +31,7 @@ export default function Footer() {
             alignItems: "center",
             gap: "12px",
             fontSize: "12px",
-            color: "#777777",
+            color: "var(--text-muted)",
           }}
         >
           <span>© {currentYear} · All rights reserved</span>
@@ -39,7 +39,7 @@ export default function Footer() {
           <Link
             href="/privacy"
             style={{
-              color: "#999999",
+              color: "var(--text-3)",
               textDecoration: "none",
             }}
           >
@@ -62,7 +62,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "#ffffff",
+              color: "var(--text)",
               textDecoration: "none",
             }}
           >
@@ -74,7 +74,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "#ffffff",
+              color: "var(--text)",
               textDecoration: "none",
             }}
           >
@@ -82,9 +82,9 @@ export default function Footer() {
           </a>
 
           <a
-            href="mailto:design@bynarmin.it"
+            href="mailto:ahz.nrm@gmail.com"
             style={{
-              color: "#ffffff",
+              color: "var(--text)",
               textDecoration: "none",
             }}
           >

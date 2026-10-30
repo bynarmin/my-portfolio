@@ -45,7 +45,7 @@
 /* Placeholder shown when image is missing */
 .portrait-fill:not(:has(img[src])) .portrait-img,
 .portrait-img[src="assets/portrait.jpg"]:not([complete]) {
-  background: #1a1a1a;
+  background: var(--bg2);
 }
 
 /* ── Right: scrollable content ─────────────── */
@@ -415,7 +415,7 @@
 .ar-list-item, 
 .ar-link, 
 .ar-lang-row {
-  color: #e0e0e0 !important;
+  color: var(--text-2) !important;
 }
 
 .ar-label, 
@@ -423,7 +423,7 @@
 .ar-exp-period, 
 .ar-edu-gpa, 
 .ar-lang-level {
-  color: #888888 !important;
+  color: var(--text-4) !important;
 }/* Forzo la visibilità di tutti i blocchi testo dell'About */
 .about-right,
 .ar-title-block,
@@ -441,7 +441,7 @@
 
 /* Colori chiari per contrasto sullo sfondo scuro */
 .about-right {
-  color: #f0f0f0 !important;
+  color: var(--text) !important;
 }
 
 .ar-eyebrow,
@@ -449,7 +449,7 @@
 .ar-exp-period,
 .ar-edu-gpa,
 .ar-lang-level {
-  color: #888888 !important;
+  color: var(--text-4) !important;
 }
 
 .ar-title,
@@ -462,5 +462,5 @@
 .ar-link,
 .ar-list-item,
 .ar-lang-row {
-  color: #ffffff !important;
+  color: var(--text) !important;
 }

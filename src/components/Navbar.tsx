@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -31,9 +32,10 @@ export default function Navbar() {
 
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-    // Smooth transition from neutral muted grey (160,160,160) to clean bright white (255,255,255)
+    // Muted grey -> full contrast, flipped per theme (white on dark, near-black on light)
     const lerpColor = (t: number) => {
-      const v = Math.round(lerp(160, 255, t));
+      const light = document.documentElement.dataset.theme === "light";
+      const v = Math.round(light ? lerp(110, 20, t) : lerp(160, 255, t));
       return `rgb(${v},${v},${v})`;
     };
 
@@ -116,10 +118,13 @@ export default function Navbar() {
         <a
           className="nav-item"
           data-page="contact"
-          href="mailto:design@bynarmin.it"
+          href="mailto:ahz.nrm@gmail.com"
         >
           <div className="nav-word" data-word="CONTACT"></div>
         </a>
+      </div>
+      <div className="nav-tools">
+        <ThemeToggle />
       </div>
     </nav>
   );
